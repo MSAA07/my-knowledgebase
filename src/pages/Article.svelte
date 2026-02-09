@@ -51,11 +51,11 @@
 
 <style>
   .article-page {
-    animation: fadeIn 0.3s ease;
+    animation: fadeIn 0.4s ease;
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(8px); }
+    from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
@@ -71,11 +71,11 @@
     color: var(--color-text-secondary);
     text-decoration: none;
     margin-bottom: 1rem;
-    transition: color 0.15s;
+    transition: color 0.2s;
   }
 
   .back-link:hover {
-    color: var(--color-primary);
+    color: var(--color-accent);
   }
 
   .article-meta {
@@ -85,14 +85,15 @@
   }
 
   .article-category {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--color-primary);
-    background: var(--color-primary-bg);
-    padding: 0.125rem 0.5rem;
-    border-radius: 0.25rem;
+    letter-spacing: 0.06em;
+    color: var(--color-accent);
+    background: var(--color-accent-bg);
+    border: 1px solid rgba(96, 165, 250, 0.15);
+    padding: 0.2rem 0.625rem;
+    border-radius: 2rem;
     text-decoration: none;
   }
 
@@ -112,6 +113,10 @@
     font-weight: 800;
     margin: 2rem 0 1rem;
     line-height: 1.3;
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .prose :global(h2) {
@@ -120,12 +125,14 @@
     margin: 2rem 0 0.75rem;
     padding-bottom: 0.375rem;
     border-bottom: 1px solid var(--color-border);
+    color: var(--color-text);
   }
 
   .prose :global(h3) {
     font-size: 1.25rem;
     font-weight: 600;
     margin: 1.5rem 0 0.5rem;
+    color: var(--color-text);
   }
 
   .prose :global(p) {
@@ -133,26 +140,29 @@
   }
 
   .prose :global(a) {
-    color: var(--color-primary);
+    color: var(--color-accent);
     text-decoration: none;
   }
 
   .prose :global(a:hover) {
+    color: var(--color-accent-light);
     text-decoration: underline;
   }
 
   .prose :global(code) {
     background: var(--color-code-bg);
+    border: 1px solid var(--color-border);
     padding: 0.125rem 0.375rem;
     border-radius: 0.25rem;
     font-size: 0.875em;
     font-family: 'SFMono-Regular', 'Consolas', 'Liberation Mono', 'Menlo', monospace;
+    color: var(--color-accent-light);
   }
 
   .prose :global(pre) {
     background: var(--color-code-bg);
     padding: 1rem 1.25rem;
-    border-radius: 0.5rem;
+    border-radius: 0.625rem;
     overflow-x: auto;
     margin: 0 0 1.25rem;
     border: 1px solid var(--color-border);
@@ -160,16 +170,18 @@
 
   .prose :global(pre code) {
     background: none;
+    border: none;
     padding: 0;
     font-size: 0.85rem;
     line-height: 1.6;
+    color: var(--color-text);
   }
 
   .prose :global(blockquote) {
-    border-left: 3px solid var(--color-primary);
+    border-left: 3px solid var(--color-accent);
     margin: 0 0 1rem;
     padding: 0.5rem 1rem;
-    background: var(--color-primary-bg);
+    background: var(--color-accent-bg);
     border-radius: 0 0.375rem 0.375rem 0;
   }
 
@@ -204,6 +216,7 @@
   .prose :global(th) {
     background: var(--color-code-bg);
     font-weight: 600;
+    color: var(--color-accent-light);
   }
 
   .prose :global(hr) {
@@ -214,10 +227,11 @@
 
   .prose :global(strong) {
     font-weight: 600;
+    color: var(--color-text);
   }
 
   .article-footer {
-    margin-top: 2rem;
+    margin-top: 2.5rem;
     padding-top: 1.5rem;
     border-top: 1px solid var(--color-border);
   }
@@ -229,14 +243,19 @@
   }
 
   .tag {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--color-text-tertiary);
     text-decoration: none;
-    transition: color 0.15s;
+    padding: 0.2rem 0.625rem;
+    border: 1px solid var(--color-border);
+    border-radius: 2rem;
+    transition: all 0.2s;
   }
 
   .tag:hover {
-    color: var(--color-primary);
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+    background: var(--color-accent-bg);
   }
 
   .not-found {
@@ -255,7 +274,7 @@
   }
 
   .not-found a {
-    color: var(--color-primary);
+    color: var(--color-accent);
     text-decoration: none;
   }
 

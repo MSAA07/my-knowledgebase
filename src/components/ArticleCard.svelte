@@ -3,37 +3,46 @@
 </script>
 
 <a href="#/article/{article.slug}" class="card">
-  <div class="card-meta">
-    <a href="#/category/{encodeURIComponent(article.category)}" class="card-category" on:click|stopPropagation>
-      {article.category}
-    </a>
-    <span class="card-date">{new Date(article.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
-  </div>
-  <h3 class="card-title">{article.title}</h3>
-  <p class="card-excerpt">{article.excerpt}</p>
-  <div class="card-tags">
-    {#each article.tags.slice(0, 3) as tag}
-      <a href="#/tag/{encodeURIComponent(tag)}" class="tag" on:click|stopPropagation>#{tag}</a>
-    {/each}
+  <div class="card-inner">
+    <div class="card-meta">
+      <a href="#/category/{encodeURIComponent(article.category)}" class="card-category" on:click|stopPropagation>
+        {article.category}
+      </a>
+      <span class="card-date">{new Date(article.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+    </div>
+    <h3 class="card-title">{article.title}</h3>
+    <p class="card-excerpt">{article.excerpt}</p>
+    <div class="card-tags">
+      {#each article.tags.slice(0, 3) as tag}
+        <a href="#/tag/{encodeURIComponent(tag)}" class="tag" on:click|stopPropagation>#{tag}</a>
+      {/each}
+    </div>
   </div>
 </a>
 
 <style>
   .card {
     display: block;
-    padding: 1.5rem;
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: 0.75rem;
     text-decoration: none;
     color: var(--color-text);
-    transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+    border-radius: 0.875rem;
+    background: linear-gradient(135deg, var(--color-border), var(--color-border-light));
+    padding: 1px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
   .card:hover {
-    border-color: var(--color-primary);
-    box-shadow: 0 4px 12px var(--color-shadow);
-    transform: translateY(-2px);
+    transform: translateY(-4px);
+    box-shadow:
+      0 8px 30px rgba(0, 0, 0, 0.25),
+      0 0 20px rgba(96, 165, 250, 0.06);
+  }
+
+  .card-inner {
+    background: var(--color-surface);
+    border-radius: calc(0.875rem - 1px);
+    padding: 1.5rem;
+    height: 100%;
   }
 
   .card-meta {
@@ -44,19 +53,21 @@
   }
 
   .card-category {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--color-primary);
-    background: var(--color-primary-bg);
-    padding: 0.125rem 0.5rem;
-    border-radius: 0.25rem;
+    letter-spacing: 0.06em;
+    color: var(--color-accent);
+    background: var(--color-accent-bg);
+    border: 1px solid rgba(96, 165, 250, 0.15);
+    padding: 0.15rem 0.5rem;
+    border-radius: 2rem;
     text-decoration: none;
+    transition: background 0.2s;
   }
 
   .card-category:hover {
-    opacity: 0.8;
+    background: var(--color-accent-bg-hover);
   }
 
   .card-date {
@@ -65,14 +76,22 @@
   }
 
   .card-title {
-    font-size: 1.125rem;
+    font-size: 1.1rem;
     font-weight: 600;
     margin: 0 0 0.5rem;
     line-height: 1.4;
+    transition: color 0.2s;
+  }
+
+  .card:hover .card-title {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .card-excerpt {
-    font-size: 0.9rem;
+    font-size: 0.875rem;
     color: var(--color-text-secondary);
     margin: 0 0 1rem;
     line-height: 1.6;
@@ -85,13 +104,13 @@
   }
 
   .tag {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: var(--color-text-tertiary);
     text-decoration: none;
-    transition: color 0.15s;
+    transition: color 0.2s;
   }
 
   .tag:hover {
-    color: var(--color-primary);
+    color: var(--color-accent);
   }
 </style>

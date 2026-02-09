@@ -64,11 +64,11 @@
 
 <style>
   .search-page {
-    animation: fadeIn 0.3s ease;
+    animation: fadeIn 0.4s ease;
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(8px); }
+    from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
@@ -76,6 +76,10 @@
     font-size: 2rem;
     font-weight: 800;
     margin: 0 0 1.5rem;
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .search-box {
@@ -95,18 +99,18 @@
   .search-input {
     width: 100%;
     padding: 0.875rem 2.75rem 0.875rem 3rem;
-    border: 2px solid var(--color-border);
+    border: 1px solid var(--color-border);
     border-radius: 0.75rem;
     background: var(--color-surface);
     color: var(--color-text);
     font-size: 1rem;
     outline: none;
-    transition: border-color 0.15s, box-shadow 0.15s;
+    transition: border-color 0.2s, box-shadow 0.2s;
   }
 
   .search-input:focus {
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 4px var(--color-primary-bg);
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 4px var(--color-accent-bg);
   }
 
   .search-input::placeholder {

@@ -1,42 +1,32 @@
 /* ========================================
-   Theme Variables
+   Dark Navy Theme Variables
    ======================================== */
 
-:root,
-[data-theme='light'] {
-  --color-bg: #f8f9fb;
-  --color-surface: #ffffff;
-  --color-sidebar-bg: #ffffff;
-  --color-border: #e2e6ed;
-  --color-hover: #f0f2f5;
-  --color-shadow: rgba(0, 0, 0, 0.06);
+:root {
+  --color-bg: #0a0e27;
+  --color-bg-secondary: #0f1435;
+  --color-surface: #111840;
+  --color-surface-hover: #161d4e;
+  --color-border: #1e2758;
+  --color-border-light: #283170;
+  --color-shadow: rgba(0, 0, 0, 0.4);
+  --color-glow: rgba(96, 165, 250, 0.15);
 
-  --color-text: #1a1d23;
-  --color-text-secondary: #4b5563;
-  --color-text-tertiary: #9ca3af;
+  --color-text: #e8edf5;
+  --color-text-secondary: #8b95b3;
+  --color-text-tertiary: #525f83;
 
-  --color-primary: #4f46e5;
-  --color-primary-bg: rgba(79, 70, 229, 0.08);
+  --color-accent: #60a5fa;
+  --color-accent-light: #93c5fd;
+  --color-accent-bg: rgba(96, 165, 250, 0.08);
+  --color-accent-bg-hover: rgba(96, 165, 250, 0.14);
 
-  --color-code-bg: #f3f4f6;
-}
+  --gradient-accent: linear-gradient(135deg, #60a5fa, #93c5fd);
+  --gradient-hero: linear-gradient(135deg, #60a5fa 0%, #93c5fd 50%, #60a5fa 100%);
+  --gradient-card-border: linear-gradient(135deg, #1e2758, #2a3570);
+  --gradient-bg-radial: radial-gradient(ellipse at 50% 0%, rgba(96, 165, 250, 0.08) 0%, transparent 60%);
 
-[data-theme='dark'] {
-  --color-bg: #0f1117;
-  --color-surface: #1a1d27;
-  --color-sidebar-bg: #141620;
-  --color-border: #2a2d3a;
-  --color-hover: #22253a;
-  --color-shadow: rgba(0, 0, 0, 0.3);
-
-  --color-text: #e5e7eb;
-  --color-text-secondary: #9ca3af;
-  --color-text-tertiary: #6b7280;
-
-  --color-primary: #818cf8;
-  --color-primary-bg: rgba(129, 140, 248, 0.1);
-
-  --color-code-bg: #1e2030;
+  --color-code-bg: #0d1230;
 }
 
 /* ========================================
@@ -57,16 +47,25 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, Oxygen, Ubuntu,
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
     Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   background: var(--color-bg);
   color: var(--color-text);
   line-height: 1.6;
-  transition: background 0.2s, color 0.2s;
 }
 
 #app {
   min-height: 100vh;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-accent-light);
 }
 
 /* ========================================
@@ -74,8 +73,8 @@ body {
    ======================================== */
 
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -84,11 +83,11 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background: var(--color-border);
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-text-tertiary);
+  background: var(--color-border-light);
 }
 
 /* ========================================
@@ -96,6 +95,6 @@ body {
    ======================================== */
 
 ::selection {
-  background: var(--color-primary);
+  background: rgba(96, 165, 250, 0.3);
   color: white;
 }
