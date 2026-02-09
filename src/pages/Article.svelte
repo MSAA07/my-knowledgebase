@@ -23,9 +23,6 @@
         <a href="#/category/{encodeURIComponent(article.category)}" class="article-category">
           {article.category}
         </a>
-        <span class="article-date">
-          {new Date(article.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
-        </span>
       </div>
     </div>
 
@@ -95,11 +92,6 @@
     padding: 0.2rem 0.625rem;
     border-radius: 2rem;
     text-decoration: none;
-  }
-
-  .article-date {
-    font-size: 0.85rem;
-    color: var(--color-text-tertiary);
   }
 
   /* Markdown/prose styles */

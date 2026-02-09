@@ -2,6 +2,7 @@
   import Footer from './components/Footer.svelte';
   import Home from './pages/Home.svelte';
   import Article from './pages/Article.svelte';
+  import ProcurementArticle from './pages/ProcurementArticle.svelte';
   import Category from './pages/Category.svelte';
   import Search from './pages/Search.svelte';
   import TagPage from './pages/TagPage.svelte';
@@ -15,6 +16,8 @@
   <main class="content">
     {#if route === '/' || route === ''}
       <Home />
+    {:else if route === '/article/procurement-process'}
+      <ProcurementArticle />
     {:else if route.startsWith('/article/')}
       <Article slug={route.replace('/article/', '')} />
     {:else if route.startsWith('/category/')}
