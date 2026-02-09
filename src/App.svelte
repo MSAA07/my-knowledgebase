@@ -1,5 +1,5 @@
 <script>
-  import Header from './components/Header.svelte';
+  import Footer from './components/Footer.svelte';
   import Home from './pages/Home.svelte';
   import Article from './pages/Article.svelte';
   import Category from './pages/Category.svelte';
@@ -12,8 +12,6 @@
 </script>
 
 <div class="app-layout">
-  <Header />
-
   <main class="content">
     {#if route === '/' || route === ''}
       <Home />
@@ -33,6 +31,8 @@
       </div>
     {/if}
   </main>
+
+  <Footer />
 </div>
 
 <style>

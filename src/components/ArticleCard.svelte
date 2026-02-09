@@ -8,7 +8,6 @@
       <a href="#/category/{encodeURIComponent(article.category)}" class="card-category" on:click|stopPropagation>
         {article.category}
       </a>
-      <span class="card-date">{new Date(article.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
     </div>
     <h3 class="card-title">{article.title}</h3>
     <p class="card-excerpt">{article.excerpt}</p>
@@ -68,11 +67,6 @@
 
   .card-category:hover {
     background: var(--color-accent-bg-hover);
-  }
-
-  .card-date {
-    font-size: 0.8rem;
-    color: var(--color-text-tertiary);
   }
 
   .card-title {

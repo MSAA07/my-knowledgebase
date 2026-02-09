@@ -4,7 +4,6 @@
     category: 'Agile',
     title: 'Agile Fundamentals',
     description: 'Master the core principles of Agile methodology — from iterative development and continuous feedback to adaptive planning and cross-functional collaboration.',
-    date: 'Feb 8, 2026',
     readTime: '8 min read',
   };
 </script>
@@ -24,7 +23,6 @@
       <div class="card-inner">
         <div class="card-top">
           <span class="card-badge">{article.category}</span>
-          <span class="card-date">{article.date}</span>
         </div>
 
         <h2 class="card-title">{article.title}</h2>
@@ -153,9 +151,6 @@
   }
 
   .card-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     margin-bottom: 1.25rem;
   }
 
@@ -169,11 +164,6 @@
     border: 1px solid rgba(96, 165, 250, 0.15);
     padding: 0.25rem 0.75rem;
     border-radius: 2rem;
-  }
-
-  .card-date {
-    font-size: 0.8rem;
-    color: var(--color-text-tertiary);
   }
 
   .card-title {
