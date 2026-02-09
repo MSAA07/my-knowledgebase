@@ -2,6 +2,97 @@ import { writable, derived } from 'svelte/store';
 
 const articleData = [
   {
+    id: 'procurement-process',
+    title: 'Procurement in Project Management',
+    slug: 'procurement-process',
+    category: 'Procurement',
+    tags: ['procurement', 'project management', 'contracts'],
+    date: '2026-02-08',
+    excerpt: 'Understanding the procurement process and its critical role in successful project delivery',
+    content: `
+# Procurement in Project Management
+
+Procurement is one of the most critical knowledge areas in project management. It involves acquiring goods, services, or results from outside the project team to complete the work.
+
+## What Is Project Procurement?
+
+Project procurement management includes the processes necessary to purchase or acquire products, services, or results needed from outside the project team. It encompasses planning, conducting, controlling, and closing procurement activities.
+
+## The Procurement Process
+
+### 1. Plan Procurement Management
+
+This is where you determine what to procure, how to procure it, and identify potential sellers.
+
+**Key outputs:**
+- Procurement management plan
+- Procurement statement of work
+- Make-or-buy decisions
+- Source selection criteria
+
+### 2. Conduct Procurements
+
+Obtain seller responses, select sellers, and award contracts.
+
+**Common contract types:**
+
+| Contract Type | Description | Risk Bearer |
+|--------------|-------------|-------------|
+| Fixed Price (FFP) | Set price for defined scope | Seller |
+| Cost Reimbursable (CPFF) | Actual costs plus a fee | Buyer |
+| Time & Materials (T&M) | Hourly rate plus materials | Shared |
+| Cost Plus Incentive Fee (CPIF) | Costs plus incentive for performance | Shared |
+
+### 3. Control Procurements
+
+Manage procurement relationships, monitor contract performance, and make changes as needed.
+
+**Key activities:**
+- Performance reviews and inspections
+- Payment processing
+- Change management
+- Claims administration
+
+### 4. Close Procurements
+
+Complete and settle each procurement, including resolution of any open items.
+
+## Make-or-Buy Analysis
+
+One of the first decisions in procurement is whether to make or buy:
+
+- **Make** — Build in-house when you have the expertise, it's a core competency, or you need tight control
+- **Buy** — Outsource when the vendor has specialized expertise, it reduces cost, or it allows your team to focus on core deliverables
+
+## Source Selection Methods
+
+- **Least cost** — Choose the lowest-priced qualified bidder
+- **Qualifications only** — Select based on expertise and experience
+- **Quality/cost-based** — Weight both technical quality and cost
+- **Fixed budget** — Disclose the budget and select the highest-quality proposal within it
+
+## Procurement Documents
+
+Key documents in the procurement process:
+
+- **RFI** (Request for Information) — Gather general vendor information
+- **RFP** (Request for Proposal) — Solicit detailed proposals
+- **RFQ** (Request for Quotation) — Request pricing for well-defined work
+- **IFB** (Invitation for Bid) — Formal solicitation for competitive bidding
+
+## Best Practices
+
+1. **Define clear requirements** — Ambiguous scope leads to disputes and cost overruns
+2. **Use appropriate contract types** — Match the contract type to your risk tolerance and scope clarity
+3. **Establish evaluation criteria early** — Define how you'll evaluate proposals before you receive them
+4. **Maintain documentation** — Keep records of all procurement decisions, communications, and changes
+5. **Monitor performance** — Track vendor deliverables against contract terms consistently
+6. **Plan for risks** — Include contingency clauses and performance guarantees in contracts
+
+> **Key Takeaway:** Effective procurement management directly impacts project success. The right procurement strategy reduces risk, controls costs, and ensures you get the quality deliverables your project needs.
+    `
+  },
+  {
     id: 'getting-started',
     title: 'Getting Started with the Knowledge Base',
     slug: 'getting-started',

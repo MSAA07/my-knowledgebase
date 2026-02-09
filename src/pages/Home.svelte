@@ -1,9 +1,9 @@
 <script>
   const article = {
-    slug: 'getting-started',
-    category: 'Agile',
-    title: 'Agile Fundamentals',
-    description: 'Master the core principles of Agile methodology — from iterative development and continuous feedback to adaptive planning and cross-functional collaboration.',
+    slug: 'procurement-process',
+    category: 'Procurement',
+    title: 'Procurement in Project Management',
+    description: 'Understanding the procurement process and its critical role in successful project delivery',
     readTime: '8 min read',
   };
 </script>
