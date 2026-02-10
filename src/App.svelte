@@ -6,6 +6,8 @@
   import Category from './pages/Category.svelte';
   import Search from './pages/Search.svelte';
   import TagPage from './pages/TagPage.svelte';
+  import Quiz from './pages/Quiz.svelte';
+  import ITProjectManagement from './pages/ITProjectManagement.svelte';
   import { currentPath } from './stores/router.js';
   import './styles/global.css';
 
@@ -16,6 +18,8 @@
   <main class="content">
     {#if route === '/' || route === ''}
       <Home />
+    {:else if route === '/it-project-management'}
+      <ITProjectManagement />
     {:else if route === '/article/procurement-process'}
       <ProcurementArticle />
     {:else if route.startsWith('/article/')}
@@ -26,6 +30,8 @@
       <TagPage tag={decodeURIComponent(route.replace('/tag/', ''))} />
     {:else if route === '/search'}
       <Search />
+    {:else if route === '/quiz'}
+      <Quiz />
     {:else}
       <div class="not-found">
         <h1>404</h1>

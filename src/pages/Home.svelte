@@ -1,50 +1,54 @@
 <script>
-  const article = {
-    slug: 'procurement-process',
-    category: 'Procurement',
-    title: 'Procurement in Project Management',
-    description: 'Understanding the procurement process and its critical role in successful project delivery',
-    readTime: '8 min read',
-  };
 </script>
 
 <div class="home">
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-glow"></div>
-    <h1 class="hero-title">IT Project Management</h1>
-    <p class="hero-tagline">Know your Agile Industry</p>
-    <div class="hero-divider"></div>
+    <h1 class="hero-title">Your Comprehensive IT Knowledge Base</h1>
+    <p class="hero-subtitle">Master the fundamentals and beyond</p>
   </section>
 
-  <!-- Article Card -->
+  <!-- Cards Section -->
   <section class="cards-section">
-    <a href="#/article/{article.slug}" class="card">
-      <div class="card-inner">
-        <div class="card-top">
-          <span class="card-badge">{article.category}</span>
+    <div class="cards-header">
+      <h2 class="cards-title">Fields of Knowledge</h2>
+    </div>
+    <div class="cards-grid">
+      <!-- Card 1: IT Project Management -->
+      <a href="#/it-project-management" class="card">
+        <div class="card-inner">
+          <div class="card-top">
+            <span class="card-badge">CATEGORY</span>
+          </div>
+          <h3 class="card-title">IT Project Management</h3>
+          <p class="card-description">Explore procurement, terminology, roles, and essential Q&A for successful project delivery</p>
+          <div class="card-bottom">
+            <span class="card-subtopics">4 topics</span>
+            <span class="card-arrow" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </span>
+          </div>
         </div>
+      </a>
 
-        <h2 class="card-title">{article.title}</h2>
-        <p class="card-description">{article.description}</p>
-
-        <div class="card-bottom">
-          <span class="card-read-time">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10" />
-              <polyline points="12 6 12 12 16 14" />
-            </svg>
-            {article.readTime}
-          </span>
-          <span class="card-arrow">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
-          </span>
+      <!-- Card 2: Data -->
+      <div class="card card--disabled">
+        <div class="card-inner">
+          <div class="card-top">
+            <span class="card-badge">CATEGORY</span>
+          </div>
+          <h3 class="card-title">Data</h3>
+          <p class="card-description">Coming soon &mdash; Data management, analytics, and insights for IT professionals</p>
+          <div class="card-bottom">
+            <span class="card-coming-soon">Coming soon</span>
+          </div>
         </div>
       </div>
-    </a>
+    </div>
   </section>
 </div>
 
@@ -97,7 +101,7 @@
     50% { background-position: 200% center; }
   }
 
-  .hero-tagline {
+  .hero-subtitle {
     font-size: 1.15rem;
     color: var(--color-text-secondary);
     margin: 0.75rem 0 0;
@@ -107,26 +111,33 @@
     z-index: 1;
   }
 
-  .hero-divider {
-    width: 60px;
-    height: 3px;
-    background: var(--gradient-accent);
-    border-radius: 2px;
-    margin: 2rem auto 0;
-    opacity: 0.6;
-  }
-
   /* ---- Cards Section ---- */
   .cards-section {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    gap: 1.5rem;
     padding: 0 1rem 4rem;
   }
 
+  .cards-header {
+    display: flex;
+    align-items: center;
+  }
+
+  .cards-title {
+    margin: 0;
+    font-size: 1.4rem;
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  /* ---- Category Cards ---- */
   .card {
     display: block;
-    max-width: 600px;
-    width: 100%;
     text-decoration: none;
     color: var(--color-text);
     border-radius: 1rem;
@@ -136,11 +147,16 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
-  .card:hover {
+  .card:hover:not(.card--disabled) {
     transform: translateY(-6px);
     box-shadow:
       0 12px 40px rgba(0, 0, 0, 0.3),
       0 0 30px rgba(96, 165, 250, 0.08);
+  }
+
+  .card--disabled {
+    opacity: 0.55;
+    cursor: default;
   }
 
   .card-inner {
@@ -148,6 +164,8 @@
     border-radius: calc(1rem - 1px);
     padding: 2rem;
     height: 100%;
+    display: flex;
+    flex-direction: column;
   }
 
   .card-top {
@@ -167,7 +185,7 @@
   }
 
   .card-title {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 700;
     margin: 0 0 0.75rem;
     line-height: 1.35;
@@ -175,7 +193,7 @@
     transition: color 0.2s ease;
   }
 
-  .card:hover .card-title {
+  .card:hover:not(.card--disabled) .card-title {
     background: var(--gradient-accent);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -187,6 +205,7 @@
     color: var(--color-text-secondary);
     margin: 0 0 1.5rem;
     line-height: 1.7;
+    flex: 1;
   }
 
   .card-bottom {
@@ -197,12 +216,15 @@
     border-top: 1px solid var(--color-border);
   }
 
-  .card-read-time {
-    display: flex;
-    align-items: center;
-    gap: 0.375rem;
+  .card-subtopics {
     font-size: 0.8rem;
     color: var(--color-text-tertiary);
+  }
+
+  .card-coming-soon {
+    font-size: 0.8rem;
+    color: var(--color-text-tertiary);
+    font-style: italic;
   }
 
   .card-arrow {
@@ -217,7 +239,7 @@
     transition: all 0.3s ease;
   }
 
-  .card:hover .card-arrow {
+  .card:hover:not(.card--disabled) .card-arrow {
     background: var(--color-accent);
     color: var(--color-bg);
     transform: translateX(4px);
@@ -233,7 +255,7 @@
       font-size: 2rem;
     }
 
-    .hero-tagline {
+    .hero-subtitle {
       font-size: 1rem;
     }
 
@@ -241,16 +263,8 @@
       padding: 0 0.5rem 2rem;
     }
 
-    .card-inner {
-      padding: 1.5rem;
-    }
-
-    .card-title {
-      font-size: 1.25rem;
-    }
-
-    .card-description {
-      font-size: 0.875rem;
+    .cards-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>

@@ -1,20 +1,32 @@
 <script>
   export let article;
+
+  $: cardHref = article?.href ?? `#/article/${article.slug}`;
 </script>
 
-<a href="#/article/{article.slug}" class="card">
+<a href={cardHref} class="card">
   <div class="card-inner">
-    <div class="card-meta">
-      <a href="#/category/{encodeURIComponent(article.category)}" class="card-category" on:click|stopPropagation>
-        {article.category}
-      </a>
+    <div class="card-top">
+      <span class="card-badge">{article.category}</span>
     </div>
+
     <h3 class="card-title">{article.title}</h3>
-    <p class="card-excerpt">{article.excerpt}</p>
-    <div class="card-tags">
-      {#each article.tags.slice(0, 3) as tag}
-        <a href="#/tag/{encodeURIComponent(tag)}" class="tag" on:click|stopPropagation>#{tag}</a>
-      {/each}
+    <p class="card-description">{article.description}</p>
+
+    <div class="card-bottom">
+      <span class="card-read-time">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10" />
+          <polyline points="12 6 12 12 16 14" />
+        </svg>
+        {article.readTime}
+      </span>
+      <span class="card-arrow" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="5" y1="12" x2="19" y2="12" />
+          <polyline points="12 5 19 12 12 19" />
+        </svg>
+      </span>
     </div>
   </div>
 </a>
@@ -24,57 +36,50 @@
     display: block;
     text-decoration: none;
     color: var(--color-text);
-    border-radius: 0.875rem;
+    border-radius: 1rem;
+    position: relative;
     background: linear-gradient(135deg, var(--color-border), var(--color-border-light));
     padding: 1px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
   .card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-6px);
     box-shadow:
-      0 8px 30px rgba(0, 0, 0, 0.25),
-      0 0 20px rgba(96, 165, 250, 0.06);
+      0 12px 40px rgba(0, 0, 0, 0.3),
+      0 0 30px rgba(96, 165, 250, 0.08);
   }
 
   .card-inner {
     background: var(--color-surface);
-    border-radius: calc(0.875rem - 1px);
-    padding: 1.5rem;
+    border-radius: calc(1rem - 1px);
+    padding: 2rem;
     height: 100%;
   }
 
-  .card-meta {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 0.75rem;
+  .card-top {
+    margin-bottom: 1.25rem;
   }
 
-  .card-category {
+  .card-badge {
     font-size: 0.7rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
     color: var(--color-accent);
     background: var(--color-accent-bg);
     border: 1px solid rgba(96, 165, 250, 0.15);
-    padding: 0.15rem 0.5rem;
+    padding: 0.25rem 0.75rem;
     border-radius: 2rem;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
-
-  .card-category:hover {
-    background: var(--color-accent-bg-hover);
   }
 
   .card-title {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin: 0 0 0.5rem;
-    line-height: 1.4;
-    transition: color 0.2s;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0 0 0.75rem;
+    line-height: 1.35;
+    color: var(--color-text);
+    transition: color 0.2s ease;
   }
 
   .card:hover .card-title {
@@ -84,27 +89,58 @@
     background-clip: text;
   }
 
-  .card-excerpt {
-    font-size: 0.875rem;
+  .card-description {
+    font-size: 0.925rem;
     color: var(--color-text-secondary);
-    margin: 0 0 1rem;
-    line-height: 1.6;
+    margin: 0 0 1.5rem;
+    line-height: 1.7;
   }
 
-  .card-tags {
+  .card-bottom {
     display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--color-border);
   }
 
-  .tag {
-    font-size: 0.75rem;
+  .card-read-time {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.8rem;
     color: var(--color-text-tertiary);
-    text-decoration: none;
-    transition: color 0.2s;
   }
 
-  .tag:hover {
+  .card-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
     color: var(--color-accent);
+    background: var(--color-accent-bg);
+    transition: all 0.3s ease;
+  }
+
+  .card:hover .card-arrow {
+    background: var(--color-accent);
+    color: var(--color-bg);
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 640px) {
+    .card-inner {
+      padding: 1.5rem;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+    }
+
+    .card-description {
+      font-size: 0.875rem;
+    }
   }
 </style>
